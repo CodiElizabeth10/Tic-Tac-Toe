@@ -78,23 +78,23 @@ function checkWinConditions() {
     // X 3, 4, 5 condition
     else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine (50, 304, 558, 304) }
         // X 6, 7, 8 condition
-        else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine (50, 508, 558, 508) }
+    else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine (50, 508, 558, 508) }
             // X 0, 3, 6 condition
     else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine (100, 50, 100, 558) }
         // X 1, 4, 7 condition
-        else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine (304, 50, 304, 558) }
+    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine (304, 50, 304, 558) }
             // X 2, 5, 8 condition
     else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine (508, 50, 508, 558) }
         // X 6, 4, 2 condition
-        else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine (100, 508, 510, 90) }
+   else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine (100, 508, 510, 90) }
             // X 0, 4, 8 condition
-    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine (100, 100, 520, 520) }
+   else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine (100, 100, 520, 520) }
         // O 0, 1, 2 condtion
-        else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine (50, 100, 558, 100) }
+   else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine (50, 100, 558, 100) }
             // O 3, 4, 5 condition
     else if (arrayIncludes('3O', '4O', '5O')) { drawWinLine (50, 304, 558, 304) }
         // O 6, 7, 8 condtion
-        else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine (50, 508, 558, 508) }
+    else if (arrayIncludes('6O', '7O', '8O')) { drawWinLine (50, 508, 558, 508) }
             // O 0, 3, 6 condition
     else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine (100, 50, 100, 558) }
         //O 1, 4, 7 condition
@@ -166,6 +166,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     function animateLineDrawing() {
         //this variable creates a loop.
         const animationLoop = requestAnimationFrame (animateLineDrawing);
+        //this method clears content from last loop
         c.clearRect(0, 0, 608, 608)
         //This method starts a new path
         c.beginPath();
@@ -177,7 +178,9 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         c.lineWidth = 10;
         //This method sets the color of our line.
         c.strokeStyle = 'rgba(70, 255, 33, .8)';
-        //This method checks if we've reached an endpoint.
+        //This method draws everything we laid out above.
+        c.stroke();
+        //This condition checks if we've reached an endpoint.
         if (x1 <= x2 && y1 <= y2) {
             //This condition adds 10 to the previous end x point.
             if (x < x2) { x += 10; }
