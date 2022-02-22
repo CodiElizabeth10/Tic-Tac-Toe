@@ -38,7 +38,7 @@ function placeXOrO(squareNumber)  {
 
 
 //This function plays placement sound.
-audio('./media/place/mp3');
+audio ('./media/click.mp3');
 //this condition checks to see if it is computers turn.
 if(activePlayer === 'O'){
 //this function disables clicking for computer choice.
@@ -98,18 +98,18 @@ function checkWinConditions() {
             // O 0, 3, 6 condition
     else if (arrayIncludes('0O', '3O', '6O')) { drawWinLine (100, 50, 100, 558) }
         //O 1, 4, 7 condition
-    else if (arrayIncludes('1O', '4O', '7O' )) { drawWininLine (304, 50, 304, 558) }
+    else if (arrayIncludes('1O', '4O', '7O' )) { drawWinLine (304, 50, 304, 558) }
      //O 2, 5, 8 condition
-     else if (arrayIncludes('2O', '5O', '8O' )) { drawWininLine (508, 50, 508, 558) }
+     else if (arrayIncludes('2O', '5O', '8O' )) { drawWinLine (508, 50, 508, 558) }
       //O 6, 4, 2 condition
-    else if (arrayIncludes('6O', '4O', '2O' )) { drawWininLine (100, 508, 510, 90) }
+    else if (arrayIncludes('6O', '4O', '2O' )) { drawWinLine (100, 508, 510, 90) }
      //O 0, 4, 8 condition
-     else if (arrayIncludes('0O', '4O', '8O' )) { drawWininLine (100, 100, 520, 520) }
+     else if (arrayIncludes('0O', '4O', '8O' )) { drawWinLine (100, 100, 520, 520) }
      //This conditon checks for tie. If none of the above conditions register and 9
      //sqaures are selected the code executes.
      else if (selectedSquares.length >= 9) {
          //This function plays the tie game sound.
-         audio('/media/lose.mp3');
+         audio('./media/itsatie.mp3');
          //This function sets a .3 second timer before the resetGame is called.
          setTimeout(function () { resetGame(); }, 1000);
      
@@ -208,7 +208,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
    //This line disallows clicking while the win sound is playing.
    disableClick() ;
    //This line plays the win sounds.
-   audio('./media/winGame.mp3')
+   audio('./media/winner.mp3')
    //This line calls our main animation loop.
    animateLineDrawing();
    //This line waits 1 second. Then, clears canvas, resets game, and allows clicking again.
